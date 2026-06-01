@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="HelloHamburger.Business/HelloHamburger.Business.csproj" />
+  <Project Path="HelloHamburger.Core/HelloHamburger.Core.csproj" />
+  <Project Path="HelloHamburger.DataAccess/HelloHamburger.DataAccess.csproj" />
+  <Project Path="HelloHamburger.Entities/HelloHamburger.Entities.csproj" />
+  <Project Path="HelloHamburger_NTPFinal/HelloHamburger_NTPFinal.csproj" />
+</Solution>
