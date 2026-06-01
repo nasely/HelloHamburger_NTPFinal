@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace HelloHamburger.Entities.Concrete
 {
-    internal class Malzeme
+    public class Malzeme
     {
+        public string Ad { get; set; } 
+        public int Maliyet { get; set; }
+        public string Kategori { get; set; }
+
+        public Malzeme(string ad, int maliyet, string kategori)
+        {
+            Ad = ad;
+            Maliyet = maliyet;
+            Kategori = kategori;
+        }
+
+
     }
 }
