@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace HelloHamburger.Entities.Concrete
 {
-    internal class OyunVerisi
+    public class OyunVerisi
     {
+        
+
     }
 }
