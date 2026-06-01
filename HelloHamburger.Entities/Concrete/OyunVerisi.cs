@@ -8,7 +8,16 @@ namespace HelloHamburger.Entities.Concrete
 {
     public class OyunVerisi
     {
-        
+        public int Coin { get; set; }
+        public int TakipciSayisi { get; set; }
+        public int KalinanGun { get; set; }
+
+        public OyunVerisi()
+        {
+            Coin = 0;          
+            TakipciSayisi = 25; 
+            KalinanGun = 1;     
+        }
 
     }
 }

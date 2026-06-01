@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HelloHamburger.Entities\HelloHamburger.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
