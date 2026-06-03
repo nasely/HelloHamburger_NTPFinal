@@ -12,6 +12,7 @@ namespace HelloHamburger.Entities.Concrete
         public int TakipciSayisi { get; set; }
         public int KalinanGun { get; set; }
 
+        // başlangıç değerleri
         public OyunVerisi()
         {
             Coin = 0;          

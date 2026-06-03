@@ -10,7 +10,7 @@ namespace HelloHamburger.Entities.Concrete
     {
         public string Ad { get; set; } 
         public int Maliyet { get; set; }
-        public string Kategori { get; set; }
+        public string Kategori { get; set; } //Ekmek, Et, Ekstra, İçecek
 
         public Malzeme(string ad, int maliyet, string kategori)
         {
