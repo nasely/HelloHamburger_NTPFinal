@@ -20,7 +20,7 @@ namespace HelloHamburger.DataAccess.Concrete
             File.WriteAllText(_dosyaYolu, jsonMetni);
         }
 
-        public OyunVerisi Yükle()
+        public OyunVerisi Yukle()
         {
             if (!File.Exists(_dosyaYolu))
             {
