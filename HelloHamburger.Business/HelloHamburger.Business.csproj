@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HelloHamburger.Core\HelloHamburger.Core.csproj" />
     <ProjectReference Include="..\HelloHamburger.DataAccess\HelloHamburger.DataAccess.csproj" />
     <ProjectReference Include="..\HelloHamburger.Entities\HelloHamburger.Entities.csproj" />
   </ItemGroup>
