@@ -8,7 +8,7 @@ namespace HelloHamburger.Core.Constants
 {
     public class TarifDefteri
     {
-        public static readonly Dictionary<string, List<string>> Tarifler = new Dictionary<string, List<string>>()
+        public static readonly Dictionary<string, List<string>> BurgerTarifleri = new Dictionary<string, List<string>>()
         {
             {
                 "Klasik Köfte Hamburger", new List<string>()
