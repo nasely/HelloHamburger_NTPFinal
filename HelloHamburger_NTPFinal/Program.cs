@@ -5,7 +5,7 @@ using HelloHamburger.Entities.Concrete;
 
 namespace HelloHamburger_NTPFinal
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -186,7 +186,6 @@ namespace HelloHamburger_NTPFinal
                             Console.WriteLine("\nHangi tarife bakmak istersin?");
                             Console.WriteLine("1. Klasik Köfte \n2. Çıtır Tavuk \n3. Pastırmalı \n4. Vegan");
 
-                            // Refactored: SecimYaptir kullanıldı
                             string tSecim = SecimYaptir("Seçiminiz: ", new List<string> { "1", "2", "3", "4" });
                             string bakilacakAd = "";
 
@@ -214,8 +213,8 @@ namespace HelloHamburger_NTPFinal
                     Console.WriteLine("\nEkmek Seçin:");
                     Console.WriteLine("1. Beyaz Ekmek \n2. Tam Buğday");
                     string ekmekSecim = SecimYaptir("Seçiminiz:", new List<string> { "1", "2" });
-                    if ( ekmekSecim == "1") hazirlananSiparis.SecilenEkmek = "Beyaz Ekmek";
-                    else if ( ekmekSecim == "2") hazirlananSiparis.SecilenEkmek = "Tam Buğday";
+                    if (ekmekSecim == "1") hazirlananSiparis.SecilenEkmek = "Beyaz Ekmek";
+                    else if (ekmekSecim == "2") hazirlananSiparis.SecilenEkmek = "Tam Buğday";
 
                     //Et
                     Console.WriteLine("\nEtini Pişir:");
@@ -230,8 +229,8 @@ namespace HelloHamburger_NTPFinal
                     while (true)
                     {
                         Console.WriteLine("1. Marul | 2. Domates | 3. Turşu | 4. Cheddar Peyniri | 5. Burger Sos | 6. BİTTİ");
-                        
-                        string malzSecim = SecimYaptir("", new List<string> { "1", "2", "3", "4", "5", "6" });
+
+                        string malzSecim = SecimYaptir("", new List<string> { "1", "2", "3", "4", "5", "6"});
 
                         if (malzSecim == "6") break;
                         else if (malzSecim == "1") hazirlananSiparis.Icerik.Add("marul");
@@ -280,6 +279,7 @@ namespace HelloHamburger_NTPFinal
                         else if (malzeme == "turşu") mFiyat = FiyatListesi.MaliyetTursu;
                         else if (malzeme == "cheddar peyniri") mFiyat = FiyatListesi.MaliyetCheddar;
                         else if (malzeme == "burger sos") mFiyat = FiyatListesi.MaliyetBurgerSos;
+
 
                         siparisMaliyeti += mFiyat;
                         kullanilanMalzemelerRaporu.Add($"{malzeme} (1 adet): -{mFiyat}");

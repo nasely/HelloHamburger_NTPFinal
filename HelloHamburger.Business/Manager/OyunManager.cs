@@ -33,8 +33,8 @@ namespace HelloHamburger.Business.Manager
         public int GunlukMusteriSayisiGetir(int takipciSayisi)
         {
             if (takipciSayisi <= 30) return 2;
-            if (takipciSayisi <= 100) return 2;
-            if (takipciSayisi <= 200) return 2;
+            if (takipciSayisi <= 100) return 3;
+            if (takipciSayisi <= 200) return 4;
             return 5;
 
         }

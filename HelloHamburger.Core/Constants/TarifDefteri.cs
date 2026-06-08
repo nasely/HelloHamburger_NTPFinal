@@ -13,34 +13,34 @@ namespace HelloHamburger.Core.Constants
             {
                 "Klasik Köfte Hamburger", new List<string>()
                 {
-                    "Marul",
-                    "Domates",
-                    "Turşu"
+                    "marul",
+                    "domates",
+                    "turşu"
                 }
             },
             {
                 "Çıtır Tavuk Burger", new List<string>()
                 {
-                    "Cheddar peyniri",
-                    "Turşu",
-                    "Burger sosu"
+                    "cheddar peyniri",
+                    "turşu",
+                    "burger sosu"
                 }
             },
             {
                 "Pastırmalı Burger", new List<string>()
                 {
-                    "Cheddar peyniri",
-                    "Marul",
-                    "Domates",
-                    "Turşu",
+                    "cheddar peyniri",
+                    "marul",
+                    "domates",
+                    "turşu",
                 }
             },
             {
                 "Vegan Burger", new List<string>()
                 {
-                    "Marul",
-                    "Domates",
-                    "Turşu"
+                    "marul",
+                    "domates",
+                    "turşu"
                 }
             }
         };
