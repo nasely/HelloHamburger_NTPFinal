@@ -257,6 +257,68 @@ namespace HelloHamburger_NTPFinal
                     else if (icSecim == "3") hazirlananSiparis.SecilenIcecek = "Limonata";
                     else hazirlananSiparis.SecilenIcecek = "Yok";
 
+                    // --- SİPARİŞ KONTROLÜ VE MALİYET HESAPLAMASI ---
+                    Console.Clear();
+                    Console.WriteLine("Sipariş Müşteriye Teslim Edildi...");
+
+                    int siparisMaliyeti = 0;
+                    List<string> kullanilanMalzemelerRaporu = new List<string>();
+
+                    siparisMaliyeti += FiyatListesi.MaliyetEkmek;
+                    kullanilanMalzemelerRaporu.Add($"{hazirlananSiparis.SecilenEkmek.ToLower()} (1 adet): -{FiyatListesi.MaliyetEkmek}");
+
+                    if (hazirlananSiparis.SecilenEt == "Köfte") { siparisMaliyeti += FiyatListesi.MaliyetKofte; kullanilanMalzemelerRaporu.Add($"köfte (1 adet): -{FiyatListesi.MaliyetKofte}"); }
+                    else if (hazirlananSiparis.SecilenEt == "Tavuk") { siparisMaliyeti += FiyatListesi.MaliyetTavuk; kullanilanMalzemelerRaporu.Add($"tavuk (1 adet): -{FiyatListesi.MaliyetTavuk}"); }
+                    else if (hazirlananSiparis.SecilenEt == "Pastırma") { siparisMaliyeti += FiyatListesi.MaliyetPastirma; kullanilanMalzemelerRaporu.Add($"pastırma (1 adet): -{FiyatListesi.MaliyetPastirma}"); }
+                    else if (hazirlananSiparis.SecilenEt == "Vegan Köfte") { siparisMaliyeti += FiyatListesi.MaliyetVeganKofte; kullanilanMalzemelerRaporu.Add($"vegan köfte (1 adet): -{FiyatListesi.MaliyetVeganKofte}"); }
+
+                    foreach (var malzeme in hazirlananSiparis.Icerik)
+                    {
+                        int mFiyat = 10;
+                        if (malzeme == "marul") mFiyat = FiyatListesi.MaliyetMarul;
+                        else if (malzeme == "domates") mFiyat = FiyatListesi.MaliyetDomates;
+                        else if (malzeme == "turşu") mFiyat = FiyatListesi.MaliyetTursu;
+                        else if (malzeme == "cheddar peyniri") mFiyat = FiyatListesi.MaliyetCheddar;
+                        else if (malzeme == "burger sos") mFiyat = FiyatListesi.MaliyetBurgerSos;
+
+                        siparisMaliyeti += mFiyat;
+                        kullanilanMalzemelerRaporu.Add($"{malzeme} (1 adet): -{mFiyat}");
+                    }
+
+                    if (hazirlananSiparis.SecilenEkstra == "Patates Kızartması") { siparisMaliyeti += FiyatListesi.MaliyetPatates; kullanilanMalzemelerRaporu.Add($"patates kızartması (1 adet): -{FiyatListesi.MaliyetPatates}"); }
+                    else if (hazirlananSiparis.SecilenEkstra == "Soğan Halkası") { siparisMaliyeti += FiyatListesi.MaliyetSogan; kullanilanMalzemelerRaporu.Add($"soğan halkası (1 adet): -{FiyatListesi.MaliyetSogan}"); }
+                    else if (hazirlananSiparis.SecilenEkstra == "Peynir Topları") { siparisMaliyeti += FiyatListesi.MaliyetPeynir; kullanilanMalzemelerRaporu.Add($"peynir topları (1 adet): -{FiyatListesi.MaliyetPeynir}"); }
+
+                    if (hazirlananSiparis.SecilenIcecek == "Kola") { siparisMaliyeti += FiyatListesi.MaliyetKola; kullanilanMalzemelerRaporu.Add($"kola (1 adet): -{FiyatListesi.MaliyetKola}"); }
+                    else if (hazirlananSiparis.SecilenIcecek == "Ayran") { siparisMaliyeti += FiyatListesi.MaliyetAyran; kullanilanMalzemelerRaporu.Add($"ayran (1 adet): -{FiyatListesi.MaliyetAyran}"); }
+                    else if (hazirlananSiparis.SecilenIcecek == "Limonata") { siparisMaliyeti += FiyatListesi.MaliyetLimonata; kullanilanMalzemelerRaporu.Add($"limonata (1 adet): -{FiyatListesi.MaliyetLimonata}"); }
+
+                    gunlukHarcananMaliyet += siparisMaliyeti;
+
+                    bool dogruMu = siparisManager.SiparisDogruMu(gelenMusteri.IstenenSiparis, hazirlananSiparis);
+
+                    if (dogruMu)
+                    {
+                        Console.WriteLine("Müşteri: Harika! Tam istediğim gibi olmuş.");
+                        memnunMusteriSayisi++;
+                        gunSonuRaporu.Add(new Tuple<string, ConsoleColor>($"{i + 1}.sipariş ({gelenMusteri.Ad}) : +{alinacakUcret}", ConsoleColor.Green));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Müşteri: Bu benim siparişim değil! Beğenmedim, paramı geri ver!");
+                        gunlukKazanilanPara -= alinacakUcret; // Yanlışsa alınan parayı iade et
+                        kacanMusteriSayisi++;
+                        gunSonuRaporu.Add(new Tuple<string, ConsoleColor>($"{i + 1}.sipariş ({gelenMusteri.Ad}) : +0 (İptal - Yanlış Sipariş)", ConsoleColor.Red));
+                    }
+
+                    foreach (var metin in kullanilanMalzemelerRaporu)
+                    {
+                        gunSonuRaporu.Add(new Tuple<string, ConsoleColor>(metin, ConsoleColor.Red));
+                    }
+
+                    Console.WriteLine("\nSıradaki müşteriye geçmek için Enter'a bas...");
+                    Console.ReadLine();
+
                 }
 
 
